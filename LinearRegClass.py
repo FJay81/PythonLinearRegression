@@ -24,35 +24,35 @@ class Linear_Regression:
 
 
     def figure_out(self): # try to figure out m and c from the list where if more than a certain amount of times usee and most common or more than 80%/ 20% error
-            x_list = self.x_list
-            y_list = self.y_list
-            list_len = self.list_len
-            found_m = False
-            possible_m = 0
-            error_percent = 0.5
-            error_margin = error_percent * list_len
-            error_margin = int(error_margin)
-            while found_m != True:
-                c = []
-                m = possible_m
-                for i in range(len(x_list)):
-                    x = x_list[i]
-                    y = y_list[i]
-                    mx = x*possible_m
-                    c.append(y - mx)
-                
-                c , count  = self.most_freq(c)
-                
-                if count >= error_margin:
-                    self.m = m
-                    self.c = c
-                    self.prob = count/list_len
-                    return (m,c,self.prob)
-                else:
-                    possible_m += 0.0001
-                    possible_m = round(possible_m*10000)/10000
-                    #print(possible_m)
-                    pass
+        x_list = self.x_list
+        y_list = self.y_list
+        list_len = self.list_len
+        found_m = False
+        possible_m = 0
+        error_percent = 0.5
+        error_margin = error_percent * list_len
+        error_margin = int(error_margin)
+        while found_m != True:
+            c = []
+            m = possible_m
+            for i in range(len(x_list)):
+                x = x_list[i]
+                y = y_list[i]
+                mx = x*possible_m
+                c.append(y - mx)
+            
+            c , count  = self.most_freq(c)
+
+            if count >= error_margin:
+                self.m = m
+                self.c = c
+                self.prob = count/list_len
+                return (m,c,self.prob)
+            else:
+                possible_m += 0.0001
+                possible_m = round(possible_m*10000)/10000
+                #print(possible_m)
+                pass
                 
     def UserNum(self,num=1,toprint=True):
         y = (self.m * num ) + self.c
@@ -89,11 +89,7 @@ if __name__ == '__main__':
     x_list = make_x(num)
     y_list = make_y(x_list)
     
-    #grades =   [4,4,7,4,9,9,4,1,4,3,6,9,7,7,1,4,4,3]#1 - 9
-    #hrsstudy = [10,10,16,10,20,21,10,4,10,8,90,77,66,5,4,6,9,6]#any thing
-    
     LR = Linear_Regression(x_list,y_list)
-    #LR = Linear_Regression(hrsstudy,grades)
     m,c,prob = LR.figure_out()
     print(f'm = {m}, c = {c}\nY = {m}X + {c} with a correlation probability of {prob}')
     while True:
