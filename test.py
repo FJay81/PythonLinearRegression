@@ -6,7 +6,7 @@ hrsstudy = [10,10,16,10,20,21,10,4,10,8,90,77,66,5,4,6,9,6]#any thing, same orde
     
 LR = LinReg(hrsstudy,grades)
 m,c,prob = LR.figure_out()
-#print(f'm = {m}, c = {c}')
+#Basic real world example of how this could be used
 print(f'Equation: y = {m}x + {c} with correlation probability of {prob}')
 while True:
     num = float(input('enter num of hrs studied'))
