@@ -10,7 +10,7 @@ class Linear_Regression:
         self.c = None
         pass    
     
-    def most_freq(self,List):
+    def most_freq(self, List): #Finds the most common pattern with a minimun freq of at least 50%
         counter = 0
         num = List[0]
          
