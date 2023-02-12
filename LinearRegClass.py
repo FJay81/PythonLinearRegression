@@ -48,7 +48,7 @@ class Linear_Regression:
                 self.c = c
                 self.prob = count/list_len
                 return (m,c,self.prob)
-            
+            c = []
             m = -m
             for i in range(len(x_list)):
                 x = x_list[i]
@@ -83,7 +83,7 @@ class Linear_Regression:
 if __name__ == '__main__':
 
     def func(x): # this is to convert our x values to y using a y = mx + c formula
-        y = (0.0014 * x) + 4
+        y = (-7.9 * x) + 78
         return y
     
     
@@ -111,3 +111,5 @@ if __name__ == '__main__':
     while True:
         num = float(input('Enter any number'))
         LR.UserNum(num)
+
+
