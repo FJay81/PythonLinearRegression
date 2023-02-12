@@ -38,7 +38,7 @@ class Linear_Regression:
             for i in range(len(x_list)):
                 x = x_list[i]
                 y = y_list[i]
-                mx = x*possible_m
+                mx = x*m
                 c.append(y - mx)
             
             c , count  = self.most_freq(c)
@@ -48,10 +48,26 @@ class Linear_Regression:
                 self.c = c
                 self.prob = count/list_len
                 return (m,c,self.prob)
+            
+            m = -m
+            for i in range(len(x_list)):
+                x = x_list[i]
+                y = y_list[i]
+                mx = x*m
+                c.append(y - mx)
+            
+            c , count  = self.most_freq(c)
+
+            if count >= error_margin:
+                self.m = m
+                self.c = c
+                self.prob = count/list_len
+                return (m,c,self.prob)
+            
+            
             else:
                 possible_m += 0.0001
                 possible_m = round(possible_m*10000)/10000
-                #print(possible_m)
                 pass
                 
     def UserNum(self,num=1,toprint=True):
